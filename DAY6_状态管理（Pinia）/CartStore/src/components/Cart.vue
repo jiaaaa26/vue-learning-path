@@ -17,7 +17,6 @@
 <script setup>
 import { useCartStore } from "../stores/cart";
 const cartStore = useCartStore();
-const items = 1;
 </script>
 <style scoped>
 h2 {

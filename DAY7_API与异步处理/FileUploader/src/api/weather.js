@@ -1,7 +1,7 @@
 import api from "../services/api";
 
 // 建议将API_KEY放在环境变量或单独常量中
-const AMAP_API_KEY = "538e14cde96de60ab6aadd0264d715d8";
+const AMAP_API_KEY = "538e14adsdawesdadsaadd0264d715d8";
 
 // 查询实时天气
 export const getWeatherByCity = async (city) => {

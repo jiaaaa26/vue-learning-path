@@ -17,6 +17,7 @@
 <script setup>
 import { useCartStore } from "../stores/cart";
 const cartStore = useCartStore();
+const items = 1;
 </script>
 <style scoped>
 h2 {
@@ -31,7 +32,7 @@ ul {
 li {
   background: #f9f9f9;
   border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(60,60,60,0.06);
+  box-shadow: 0 1px 4px rgba(60, 60, 60, 0.06);
   margin-bottom: 10px;
   padding: 12px 16px;
   display: flex;

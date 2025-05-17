@@ -1,6 +1,6 @@
 # Vue3 学习路径 - 第一天：环境搭建与基础语法
 
-欢迎来到我的 Vue3 学习路径项目！本仓库将记录我连续十天学习 Vue3 的过程，每天一个主题，每天一个小项目，最终所有代码和笔记都会同步到 [vue-learning-path](https://github.com/你的github/vue-learning-path) 仓库，欢迎大家 star 和交流。
+欢迎来到我的 Vue3 学习路径项目！本仓库将记录我连续十天学习 Vue3 的过程，每天一个主题，每天一个小项目，最终所有代码和笔记都会同步到 [vue-learning-path](https://github.com/jiaaaa26/vue-learning-path) 仓库，欢迎大家 star 和交流。
 
 ---
 

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajax 基础练习</title>
+  <style>
+    .post {
+        border: 1px solid #ccc;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 5px;
+    }
+    .loading {
+        color: #666;
+        font-style: italic;
+    }
+</style>
+</head>
+<body>
+  <!-- 基础题： 使用 Ajax 获取一个公开 API（如 JSONPlaceholder）上的一条数据，并将其显示在网页上。 -->
+  <div id="app">
+    <h1>帖子详情</h1>
+    <div id="post" class="post">
+        <p class="loading">加载中...</p>
+    </div>
+  </div>
+  <script>        
+  /**
+  * 使用 XMLHttpRequest 获取帖子数据
+  * @param {number} postId 帖子ID
+  */
+    function getPost(postId) {
+      const xhr = new XMLHttpRequest();
+      const postElement = document.getElementById('post');
+      xhr.open('GET',`https://jsonplaceholder.typicode.com/posts/${postId}`,true)
+      xhr.onreadystatechange=function(){
+        if(xhr.readyState===4){
+          if(xhr.readyState===200){
+            // 解析响应数据
+            const post =JSON.parse(xhr.responseText);
+            // 显示数据
+            postElement.innerHTML = `
+            <h2>${post.title}</h2>
+            <p>${post.body}</p>
+            <p><strong>用户ID:</strong> ${post.userId}</p>
+            `;
+          }else{
+            postElement.innerHTML = `<p class="error">加载失败，错误码：${xhr.status}</p>`;
+          }
+        }
+      }
+      xhr.send();
+    }
+    // 初始化页面
+    getPost(1);
+    </script>
+
+</body>
+</html>

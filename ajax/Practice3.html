@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动态评论区</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <style>
+    .comment-section {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .comment-form {
+        margin-bottom: 30px;
+        padding: 20px;
+        background: #f5f5f5;
+        border-radius: 8px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    .submit-btn {
+        background: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .submit-btn:hover {
+        background: #45a049;
+    }
+
+    .comment-list {
+        margin-top: 20px;
+    }
+
+    .comment-item {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 10px;
+    }
+
+    .comment-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .comment-author {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .comment-date {
+        color: #666;
+        font-size: 0.9em;
+    }
+
+    .comment-content {
+        color: #444;
+        line-height: 1.5;
+    }
+
+    .error-message {
+        color: red;
+        margin-top: 10px;
+    }
+
+    .success-message {
+        color: green;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+  <div class="comment-section">
+    <h1>评论区</h1>
+    
+    <!-- 评论表单 -->
+    <div class="comment-form">
+        <div class="form-group">
+            <label for="name">姓名：</label>
+            <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">邮箱：</label>
+            <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+            <label for="comment">评论内容：</label>
+            <textarea id="comment" rows="4" required></textarea>
+        </div>
+        <button class="submit-btn" onclick="submitComment()">提交评论</button>
+        <div id="message"></div>
+    </div>
+
+    <!-- 评论列表 -->
+    <div class="comment-list" id="commentList">
+        <!-- 评论将通过 JavaScript 动态添加 -->
+    </div>
+
+
+    <script>
+    // 获取所有评论
+    async function fetchComments(){
+        try{
+          const response=await axios.get('https://jsonplaceholder.typicode.com/comments');
+          displayComments(response.data)
+        }catch(error){
+          showMessage('获取评论失败，请稍后重试', 'error');
+        }
+      }
+    /**
+     * 显示评论列表
+     * @param {Array} comments 评论数组
+     */
+    function displayComments(comments) {
+        const commentList = document.getElementById('commentList');
+        commentList.innerHTML = comments
+            .slice(0, 10) // 只显示前10条评论
+            .map(comment => `
+                <div class="comment-item">
+                    <div class="comment-header">
+                        <span class="comment-author">${comment.name}</span>
+                        <span class="comment-date">${comment.email}</span>
+                    </div>
+                    <div class="comment-content">${comment.body}</div>
+                </div>
+            `)
+            .join('');
+    }
+    
+    /**
+     * 提交新评论
+     */
+    async function submitComment(){
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const comment = document.getElementById('comment').value;
+
+      // 表单验证
+      if(!name || !email || !comment){
+        showMessage('请填写所有必填字段', 'error');
+        return;
+      }
+      try{
+        // 发送评论到服务器
+        const response=await axios.post('https://jsonplaceholder.typicode.com/comments',{
+          name,
+          email,
+          body:comment
+        })
+        // 清空表单
+        document.getElementById('name').value='';
+        document.getElementById('email').value='';
+        document.getElementById('comment').value='';
+        // 显示成功消息
+        showMessage('评论提交成功！', 'success');
+        // 更新评论列表
+        fetchComments();
+      }catch(error){
+        showMessage('评论提交失败，请稍后重试', 'error');
+      }
+}
+
+  /**
+ * 显示消息
+ * @param {string} message 消息内容
+ * @param {string} type 消息类型（error/success）
+ */
+function showMessage(message, type) {
+    const messageDiv = document.getElementById('message');
+    messageDiv.textContent = message;
+    messageDiv.className = type + '-message';
+    
+    // 3秒后自动清除消息
+    setTimeout(() => {
+        messageDiv.textContent = '';
+        messageDiv.className = '';
+    }, 3000);
+}
+
+        // 页面加载时获取评论
+        fetchComments();
+    
+   
+</script>
+</div>
+</body>
+</html>

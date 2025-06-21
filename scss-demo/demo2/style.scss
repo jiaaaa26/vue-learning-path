@@ -1,0 +1,32 @@
+@use "sass:color";
+@use "./variables";
+@use "./mixins";
+@use "./functions";
+@use "sass:map";
+
+/**
+ * @description 主题切换
+ */
+ body{
+  @if variables.$theme == 'dark'{
+    background: #333;
+    color:#fff;
+  }@else{
+    background-color: #fff;
+    color:#222;
+  }
+ }
+
+/**
+ * @description 批量生成不同尺寸的按钮
+ */
+ @each $size in variables.$sizes{
+  .btn-#{$size}{
+    @include mixins.button-style(variables.$primary-color);
+    height: map.get(variables.$size-map,$size);
+    font-size: map.get(variables.$size-map,$size)*0.5;
+    line-height:map.get(variables.$size-map,$size);
+
+  }
+ }
+  

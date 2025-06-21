@@ -1,0 +1,37 @@
+@use './variables';
+@use './mixins';
+/**
+ * @description 主按钮
+ */
+ .btn-primary {
+  @include mixins.button-base(variables.$primary-color);
+}
+
+/**
+ * @description 成功按钮
+ */
+.btn-success {
+  @include mixins.button-base(variables.$success-color);
+}
+
+/**
+ * @description 危险按钮
+ */
+.btn-danger {
+  @include mixins.button-base(variables.$danger-color);
+}
+
+/**
+ * @description 警告按钮
+ */
+.btn-warning {
+  @include mixins.button-base(variables.$warning-color)
+}
+
+/**
+ * @description 按钮禁用状态（BEM修饰符）
+ */
+ .btn--disabled {
+@include mixins.button-disabled;
+
+}

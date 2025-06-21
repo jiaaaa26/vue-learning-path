@@ -1,0 +1,86 @@
+@charset "UTF-8";
+/**
+ * @description 按钮主题色
+ */
+/**
+ * @description 按钮基础样式混合器
+ * @param {Color} $bg-color
+ */
+/**
+ * @description 主按钮
+ */
+.btn-primary {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.btn-primary:hover {
+  background: rgb(0, 98.4, 204);
+}
+
+/**
+ * @description 成功按钮
+ */
+.btn-success {
+  background: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.btn-success:hover {
+  background: rgb(30.1449275362, 125.8550724638, 52);
+}
+
+/**
+ * @description 危险按钮
+ */
+.btn-danger {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.btn-danger:hover {
+  background: rgb(189.2151898734, 32.7848101266, 47.7721518987);
+}
+
+/**
+ * @description 警告按钮
+ */
+.btn-warning {
+  background: #ffc107;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.btn-warning:hover {
+  background: rgb(211, 158.25, 0);
+}
+
+/**
+ * @description 按钮禁用状态（BEM修饰符）
+ */
+.btn--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/*# sourceMappingURL=style.css.map */

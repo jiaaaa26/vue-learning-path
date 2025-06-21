@@ -1,0 +1,90 @@
+@use 'sass:color';
+
+/**
+ * @description 主色调变量
+ * @type {Color}
+ */
+ $primary-color:#1c9ef4;
+
+ /**
+  * @description 基础字体大小
+  * @type {Length}
+  */
+  $font-size-base:16px;
+
+  /**
+  * @description 按钮基础样式占位符
+  */
+  %base-button{
+    padding:10px 20px;
+    border-radius:5px;
+    border:none;
+    font-size:$font-size-base;
+    cursor:pointer;
+  }
+
+  /**
+  * @description 按钮样式混合器
+  * @param {Color} $bg-color 按钮背景色
+  * @param {color} @text-color 按钮文字颜色
+  */
+  @mixin button-style($bg-color,$text-color:#fff){
+    background:$bg-color;
+    color:$text-color;
+    @extend %base-button;
+    transition: background 0.3s ;
+    &:hover{
+      background:darken($bg-color,10%);
+    }
+  }
+
+  
+  /**
+  * @description 导航栏样式
+  */
+  .navbar {
+    background:color.adjust($primary-color, $lightness: 40%);
+    padding:10px 0;
+    .nav-list{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:flex;
+      .nav-item{
+        margin-right:20px;
+        .nav-link{
+          color:$primary-color;
+          text-decoration:none;
+          font-size:$font-size-base;
+          &:hover{
+            text-decoration:underline;
+          }
+        }
+      }
+    }
+  }
+
+  /**
+  * @description 主按钮
+  */
+
+  .btn-primary{
+    @include button-style($primary-color);
+  }
+
+
+  /**
+ * @description 成功按钮
+ */
+.btn-success {
+  @include button-style(green);
+}
+
+/**
+ * @description 警告按钮
+ */
+.btn-warn {
+  @include button-style(orange,$primary-color);
+}
+
+

@@ -1,0 +1,15 @@
+/**
+ * @description 主题变量
+ */
+ $primary-color: #007bff;
+ $theme: 'light';
+
+ /**
+ * @description 按钮尺寸映射
+ */
+ $sizes : small,medium,large;
+ $size-map:(
+  small:24px,
+  medium:32px,
+  large:40px
+ )

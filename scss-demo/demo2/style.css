@@ -1,0 +1,71 @@
+@charset "UTF-8";
+/**
+ * @description 主题变量
+ */
+/**
+* @description 按钮尺寸映射
+*/
+/**
+* @description 按钮样式混合器
+* @param {Color}  $bg-color
+*/
+/**
+ * @description 主题切换
+ */
+body {
+  background-color: #fff;
+  color: #222;
+}
+
+/**
+ * @description 批量生成不同尺寸的按钮
+ */
+.btn-small {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+  height: 24px;
+  font-size: 12px;
+  line-height: 24px;
+}
+.btn-small:hover {
+  background: rgb(0, 98.4, 204);
+}
+
+.btn-medium {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+  height: 32px;
+  font-size: 16px;
+  line-height: 32px;
+}
+.btn-medium:hover {
+  background: rgb(0, 98.4, 204);
+}
+
+.btn-large {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+  height: 40px;
+  font-size: 20px;
+  line-height: 40px;
+}
+.btn-large:hover {
+  background: rgb(0, 98.4, 204);
+}
+
+/*# sourceMappingURL=style.css.map */

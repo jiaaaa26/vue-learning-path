@@ -1,0 +1,87 @@
+@charset "UTF-8";
+/**
+ * @description 主色调变量
+ * @type {Color}
+ */
+/**
+ * @description 基础字体大小
+ * @type {Length}
+ */
+/**
+* @description 按钮基础样式占位符
+*/
+.btn-warn, .btn-success, .btn-primary {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/**
+* @description 按钮样式混合器
+* @param {Color} $bg-color 按钮背景色
+* @param {color} @text-color 按钮文字颜色
+*/
+/**
+* @description 导航栏样式
+*/
+.navbar {
+  background: rgb(222.5714285714, 241.1428571429, 253.4285714286);
+  padding: 10px 0;
+}
+.navbar .nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.navbar .nav-list .nav-item {
+  margin-right: 20px;
+}
+.navbar .nav-list .nav-item .nav-link {
+  color: #1c9ef4;
+  text-decoration: none;
+  font-size: 16px;
+}
+.navbar .nav-list .nav-item .nav-link:hover {
+  text-decoration: underline;
+}
+
+/**
+* @description 主按钮
+*/
+.btn-primary {
+  background: #1c9ef4;
+  color: #fff;
+  transition: background 0.3s;
+}
+.btn-primary:hover {
+  background: rgb(10.2142857143, 130.9285714286, 210.7857142857);
+}
+
+/**
+* @description 成功按钮
+*/
+.btn-success {
+  background: green;
+  color: #fff;
+  transition: background 0.3s;
+}
+.btn-success:hover {
+  background: #004d00;
+}
+
+/**
+ * @description 警告按钮
+ */
+.btn-warn {
+  background: orange;
+  color: #1c9ef4;
+  transition: background 0.3s;
+}
+.btn-warn:hover {
+  background: #cc8400;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,12 +1,5 @@
 # 前端学习 Demo 仓库
 
-/**
- * @fileoverview 本仓库为前端学习 Demo 集合，涵盖 Vue3、Tailwind CSS、Bootstrap、SCSS、构建工具（Vite/webpack）、Ajax 等主流前端技术，适合自学、复盘、面试展示。
- * @author liuhuacheng
- */
-
----
-
 ## 仓库简介
 
 本仓库收录了本人前端学习过程中的各类 Demo，涵盖主流框架、样式方案、构建工具及常用开发技能。每个 Demo 独立成目录，便于查阅和运行。欢迎面试官或同学参考、交流。
